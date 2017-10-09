@@ -1,6 +1,6 @@
 {
   "name": "arctik-braingames",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI game as Hexlet project",
   "main": "index.js",
   "bin": {
@@ -16,7 +16,8 @@
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*"
+    "babel-preset-stage-0": "*",
+    "readline-sync": "*"
   },
   "repository": {
     "type": "git",
