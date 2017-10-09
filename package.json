@@ -10,14 +10,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "eslint": "eslint"
+  },
+  "dependencies": {
+    "readline-sync": "*"
   },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
+    "babel-eslint": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "readline-sync": "*"
+    "eslint": "*",
+    "eslint-confg-airbnb-base": "*",
+    "eslint-plugin-import": "*"
   },
   "repository": {
     "type": "git",
