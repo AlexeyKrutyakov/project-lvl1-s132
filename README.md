@@ -4,4 +4,4 @@
 
 <a href="https://codeclimate.com/github/arctikbear/project-lvl1-s132/test_coverage"><img src="https://api.codeclimate.com/v1/badges/8af329c4340898930c67/test_coverage" /></a>
 
-https://travis-ci.org/arctikbear/project-lvl1-s132.svg?branch=master
+<a><img src="https://travis-ci.org/arctikbear/project-lvl1-s132.svg?branch=master"/></a>
