@@ -1,5 +1,5 @@
 {
-  "name": "braingames",
+  "name": "arctik-braingames",
   "version": "0.1.0",
   "description": "CLI game as Hexlet project",
   "main": "index.js",
