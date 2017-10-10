@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
 
 const greeting = () => {
+  console.log('Answer "yes" if number even otherwise answer "no".\n');
   const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
   return userName;
 };
 
@@ -19,7 +21,7 @@ const evenTestResult = (name, attempts) => {
     console.log('Correct!');
     return evenTestResult(name, attempts - 1);
   }
-  return `${userAnswer} is wrong answer ;(. Correct answer was ${correct}.\nLet's try again, ${name}!`;
+  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.\nLet's try again, ${name}!`;
 };
 
 export default () => {
