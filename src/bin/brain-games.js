@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const tools = require('..');
+import greeting from '..';
 
 console.log('Welcome to the Brain Games!');
-tools.greetigs();
+greeting();
