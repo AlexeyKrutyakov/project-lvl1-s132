@@ -23,7 +23,7 @@
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
     "eslint": "*",
-    "eslint-confg-airbnb-base": "*",
+    "eslint-config-airbnb-base": "*",
     "eslint-plugin-import": "*"
   },
   "repository": {
