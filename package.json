@@ -1,10 +1,10 @@
 {
   "name": "arctik-braingames",
-  "version": "0.2.2",
+  "version": "0.3.2",
   "description": "CLI game as Hexlet project",
   "main": "dist/index.js",
   "bin": {
-    "brain-games": "dist/bin/brain-even.js"
+    "brain-games": "dist/bin/brain-calc.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
