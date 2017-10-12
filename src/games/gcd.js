@@ -1,25 +1,17 @@
 import runGame from '..';
 
-const combine = (a, b) => (a * 10) + b;
-
 const rules = 'Find the greatest common divisor of given numbers.\n';
 
-const question = (iteration, num1, num2, num3, num4) => {
-  const firstNumber = combine(num1, num2);
-  const secondNumber = combine(num3, num4);
-  return `Question: ${firstNumber} ${secondNumber}`;
-};
+const question = (iteration, a, b) => `Question: ${a} ${b}`;
 
-const correctAnswer = (num1, num2, num3, num4) => () => {
-  const firstNumber = combine(num1, num2);
-  const secondNumber = combine(num3, num4);
-  const recur = (a, b) => {
-    if (b === 0) {
-      return `${Math.abs(a)}`;
+const correctAnswer = (a, b) => () => {
+  const recur = (n, m) => {
+    if (m === 0) {
+      return [`${Math.abs(n)}`];
     }
-    return recur(b, a % b);
+    return recur(m, n % m);
   };
-  return recur(firstNumber, secondNumber);
+  return recur(a, b);
 };
 
 export default() => runGame(rules, question, correctAnswer);

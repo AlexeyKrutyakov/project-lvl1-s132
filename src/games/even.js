@@ -1,13 +1,11 @@
 import runGame from '..';
 
-const rules = 'Answer "yes" if number even otherwise answer "no".\n';
+const rule = 'Answer "yes" if number even otherwise answer "no".\n';
 
-const isEven = testingNumber => (testingNumber % 2 === 0);
+const isEven = n => (n % 2 === 0);
 
-const combine = (a, b) => (a * 10) + b;
+const question = (iteration, n) => `Question: ${n}`;
 
-const question = (iteration, num1, num2) => `Question: ${combine(num1, num2)}`;
+const correctAnswer = n => () => [(isEven(n) ? 'yes' : 'no')];
 
-const correctAnswer = (num1, num2) => () => (isEven(combine(num1, num2)) ? 'yes' : 'no');
-
-export default () => runGame(rules, question, correctAnswer);
+export default () => runGame(rule, question, correctAnswer);

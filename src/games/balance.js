@@ -1,14 +1,6 @@
 import runGame from '..';
 
-const deleteZerosFrom = (arr) => {
-  const result = [];
-  arr.forEach((element) => {
-    if (element !== 0) {
-      result.push(element);
-    }
-  });
-  return result;
-};
+const sumArr = arr => arr.reduce((acc, current) => acc + current);
 
 const arrToString = (arr) => {
   let result = '';
@@ -18,33 +10,29 @@ const arrToString = (arr) => {
   return result;
 };
 
-const sumArr = arr => arr.reduce((acc, currentValue) => acc + currentValue);
+const balanceArr = (elements) => {
+  const arr = [];
+  elements.forEach(n => arr.push(Number(n)));
 
-const balanceArr = (arr) => {
-  const result = [];
-  const iter = (sum, iterationsCount, acc) => {
-    if (iterationsCount === 0) {
+  const iter = (sum, elementsCount, acc) => {
+    if (elementsCount === 0) {
       return acc;
     }
-    const average = sum / iterationsCount;
+    const average = sum / elementsCount;
     const newArrElement = Math.floor(average);
     acc.push(newArrElement);
-    return iter(sum - newArrElement, iterationsCount - 1, acc);
+    return iter(sum - newArrElement, elementsCount - 1, acc);
   };
-  return iter(sumArr(arr), arr.length, result);
+  return iter(sumArr(arr), arr.length, []);
 };
 
-const rules = 'Balance the given number.\n';
+const rule = 'Balance the given number.\n';
 
-const question = (iteration, num1, num2, num3, num4) => {
-  const numArray = [num1, num2, num3, num4];
-  const text = arrToString(deleteZerosFrom(numArray));
-  return `Question: ${text}`;
+const question = (iteration, a, b) => `Question: ${a}${b}`;
+
+const correctAnswer = (a, b) => () => {
+  const arr = Array.from(`${a}${b}`);
+  return [arrToString(balanceArr(arr))];
 };
 
-const correctAnswer = (num1, num2, num3, num4) => () => {
-  const workArray = deleteZerosFrom([num1, num2, num3, num4]);
-  return arrToString(balanceArr(workArray));
-};
-
-export default() => runGame(rules, question, correctAnswer);
+export default() => runGame(rule, question, correctAnswer);
