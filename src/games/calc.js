@@ -1,5 +1,7 @@
 import runGame from '..';
 
+const combine = (a, b) => (a * 10) + b;
+
 const rules = 'What is the result of the expression?\n';
 
 const operation = (iteration) => {
@@ -15,9 +17,15 @@ const operation = (iteration) => {
   }
 };
 
-const question = (num1, num2, iteration) => `Question: ${num1} ${operation(iteration)} ${num2}`;
+const question = (iteration, num1, num2, num3, num4) => {
+  const firstNumber = combine(num1, num2);
+  const secondNumber = combine(num3, num4);
+  return `Question: ${firstNumber} ${operation(iteration)} ${secondNumber}`;
+};
 
-const correctAnswer = (a, b) => (iteration) => {
+const correctAnswer = (num1, num2, num3, num4) => (iteration) => {
+  const a = combine(num1, num2);
+  const b = combine(num3, num4);
   switch (iteration) {
     case 3:
       return `${a + b}`;
