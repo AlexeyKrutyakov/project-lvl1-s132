@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import even from '..';
-
-console.log('Welcome to the Brain Games!');
+import even from '../games/even';
 
 even();

@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-import gcd from '..';
-
-console.log('Welcome to the Brain Games!');
+import gcd from '../games/gcd';
 
 gcd();
