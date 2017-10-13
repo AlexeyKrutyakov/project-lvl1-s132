@@ -1,11 +1,13 @@
-import runGame from '..';
+import { runGame, rnd } from '..';
 
 const rule = 'Answer "yes" if number even otherwise answer "no".\n';
 
 const isEven = n => (n % 2 === 0);
 
-const question = (iteration, n) => `Question: ${n}`;
+const generateTask = () => {
+  const question = rnd(0, 99);
+  const answer = isEven(question) ? 'yes' : 'no';
+  return [question, answer];
+};
 
-const correctAnswer = n => () => [(isEven(n) ? 'yes' : 'no')];
-
-export default () => runGame(rule, question, correctAnswer);
+export default () => runGame(rule, generateTask);
