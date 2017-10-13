@@ -1,17 +1,23 @@
-import runGame from '..';
+import { runGame, rnd } from '..';
 
-const rules = 'Find the greatest common divisor of given numbers.\n';
+const rule = 'Find the greatest common divisor of given numbers.\n';
 
-const question = (iteration, a, b) => `Question: ${a} ${b}`;
-
-const correctAnswer = (a, b) => () => {
+const calculate = ([a, b]) => {
   const recur = (n, m) => {
     if (m === 0) {
       return [`${Math.abs(n)}`];
     }
     return recur(m, n % m);
   };
-  return recur(a, b);
+  return `${recur(a, b)}`;
 };
 
-export default() => runGame(rules, question, correctAnswer);
+
+const generateTask = () => {
+  const taskData = [rnd(0, 99), rnd(0, 99)];
+  const question = `${taskData[0]} ${taskData[1]}`;
+  const answer = calculate(taskData);
+  return [question, answer];
+};
+
+export default () => runGame(rule, generateTask);
