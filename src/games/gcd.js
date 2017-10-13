@@ -1,8 +1,9 @@
-import { runGame, rnd } from '..';
+import runGame from '..';
+import rnd from '../utils';
 
-const rule = 'Find the greatest common divisor of given numbers.\n';
+const rule = 'Find the greatest common divisor of given numbers.';
 
-const calculate = ([a, b]) => {
+const countGcd = ([a, b]) => {
   const recur = (n, m) => {
     if (m === 0) {
       return [`${Math.abs(n)}`];
@@ -12,12 +13,13 @@ const calculate = ([a, b]) => {
   return `${recur(a, b)}`;
 };
 
-
 const generateTask = () => {
   const taskData = [rnd(0, 99), rnd(0, 99)];
   const question = `${taskData[0]} ${taskData[1]}`;
-  const answer = calculate(taskData);
+  const answer = countGcd(taskData);
   return [question, answer];
 };
 
-export default () => runGame(rule, generateTask);
+const attemptsCount = 3;
+
+export default () => runGame(rule, generateTask, attemptsCount);
