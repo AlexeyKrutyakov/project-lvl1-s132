@@ -1,7 +1,7 @@
 import runGame from '..';
 import rnd from '../utils';
 
-const rule = 'Answer "yes" if number even otherwise answer "no".\n';
+const rule = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = n => (n % 2 === 0);
 

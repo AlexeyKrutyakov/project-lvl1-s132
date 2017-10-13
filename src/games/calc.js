@@ -1,7 +1,7 @@
 import runGame from '..';
 import rnd from '../utils';
 
-const rule = 'What is the result of the expression?\n';
+const rule = 'What is the result of the expression?';
 
 const countExpression = ([a, b, casePosition]) => {
   switch (casePosition) {

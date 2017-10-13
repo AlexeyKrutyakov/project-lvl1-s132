@@ -4,7 +4,7 @@ export default (rule, task, attemptsCount) => {
   console.log('Welcome to the Brain Games!');
   console.log(rule);
 
-  const name = readlineSync.question('May I have your name? ');
+  const name = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${name}!\n`);
 
   const iter = (attempt = 1) => {
