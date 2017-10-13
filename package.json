@@ -1,6 +1,6 @@
 {
   "name": "arctik-braingames",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "CLI game as Hexlet project",
   "main": "dist/index.js",
   "bin": {

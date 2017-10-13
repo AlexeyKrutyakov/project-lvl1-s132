@@ -1,6 +1,7 @@
-import { runGame, rnd } from '..';
+import runGame from '..';
+import rnd from '../utils';
 
-const rule = 'Balance the given number.\n';
+const rule = 'Balance the given number.';
 
 const sumElements = arr => arr.reduce((acc, current) => acc + current);
 
@@ -28,7 +29,6 @@ const balanceArr = (elements) => {
   return iter(sumElements(arr), arr.length, []);
 };
 
-
 const generateTask = () => {
   const taskData = [rnd(0, 9), rnd(0, 9), rnd(0, 9), rnd(0, 9)];
   const question = `${taskData[0]}${taskData[1]}${taskData[2]}${taskData[3]}`;
@@ -36,4 +36,6 @@ const generateTask = () => {
   return [question, answer];
 };
 
-export default () => runGame(rule, generateTask);
+const attemptsCount = 3;
+
+export default () => runGame(rule, generateTask, attemptsCount);
