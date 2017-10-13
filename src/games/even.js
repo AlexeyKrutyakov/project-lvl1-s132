@@ -1,4 +1,5 @@
-import { runGame, rnd } from '..';
+import runGame from '..';
+import rnd from '../utils';
 
 const rule = 'Answer "yes" if number even otherwise answer "no".\n';
 
@@ -10,4 +11,6 @@ const generateTask = () => {
   return [question, answer];
 };
 
-export default () => runGame(rule, generateTask);
+const attemptsCount = 3;
+
+export default () => runGame(rule, generateTask, attemptsCount);
