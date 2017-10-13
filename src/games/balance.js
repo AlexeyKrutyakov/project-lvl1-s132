@@ -1,6 +1,8 @@
-import runGame from '..';
+import { runGame, rnd } from '..';
 
-const sumArr = arr => arr.reduce((acc, current) => acc + current);
+const rule = 'Balance the given number.\n';
+
+const sumElements = arr => arr.reduce((acc, current) => acc + current);
 
 const arrToString = (arr) => {
   let result = '';
@@ -23,16 +25,15 @@ const balanceArr = (elements) => {
     acc.push(newArrElement);
     return iter(sum - newArrElement, elementsCount - 1, acc);
   };
-  return iter(sumArr(arr), arr.length, []);
+  return iter(sumElements(arr), arr.length, []);
 };
 
-const rule = 'Balance the given number.\n';
 
-const question = (iteration, a, b) => `Question: ${a}${b}`;
-
-const correctAnswer = (a, b) => () => {
-  const arr = Array.from(`${a}${b}`);
-  return [arrToString(balanceArr(arr))];
+const generateTask = () => {
+  const taskData = [rnd(0, 9), rnd(0, 9), rnd(0, 9), rnd(0, 9)];
+  const question = `${taskData[0]}${taskData[1]}${taskData[2]}${taskData[3]}`;
+  const answer = arrToString(balanceArr(taskData));
+  return [question, answer];
 };
 
-export default() => runGame(rule, question, correctAnswer);
+export default () => runGame(rule, generateTask);

@@ -2,7 +2,7 @@ install:
 	npm install
 
 start:
-	npm run babel-node -- src/bin/brain-gcd.js
+	npm run babel-node -- src/bin/brain-balance.js
 
 build:
 	rm -rf dist
