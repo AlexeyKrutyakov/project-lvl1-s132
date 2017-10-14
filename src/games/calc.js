@@ -3,27 +3,25 @@ import rnd from '../utils';
 
 const rule = 'What is the result of the expression?';
 
-const countExpression = ([a, b, casePosition]) => {
-  switch (casePosition) {
+const createTaskData = (a, b) => {
+  switch (rnd(1, 3)) {
     case 3:
-      return [`${a + b}`, '+'];
+      return [a + b, '+'];
     case 2:
-      return [`${a - b}`, '-'];
-    case 1:
-      return [`${a * b}`, '*'];
+      return [a - b, '-'];
     default:
-      return false;
+      return [a * b, '*'];
   }
 };
 
 const generateTask = () => {
-  const taskData = [rnd(0, 99), rnd(0, 99), rnd(1, 3)];
-  const operation = countExpression(taskData)[1];
-  const question = `${taskData[0]} ${operation} ${taskData[1]}`;
-  const answer = countExpression(taskData)[0];
+  const a = rnd(0, 99);
+  const b = rnd(0, 99);
+  const taskData = createTaskData(a, b);
+  const operation = taskData[1];
+  const question = `${a} ${operation} ${b}`;
+  const answer = `${taskData[0]}`;
   return [question, answer];
 };
 
-const attemptsCount = 3;
-
-export default () => runGame(rule, generateTask, attemptsCount);
+export default () => runGame(rule, generateTask);

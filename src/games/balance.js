@@ -3,39 +3,26 @@ import rnd from '../utils';
 
 const rule = 'Balance the given number.';
 
-const sumElements = arr => arr.reduce((acc, current) => acc + current);
-
-const arrToString = (arr) => {
-  let result = '';
-  arr.forEach((element) => {
-    result += element;
-  });
-  return result;
-};
-
-const balanceArr = (elements) => {
-  const arr = [];
-  elements.forEach(n => arr.push(Number(n)));
-
-  const iter = (sum, elementsCount, acc) => {
-    if (elementsCount === 0) {
+const balanceArr = (n) => {
+  const arr = Array.from(String(n)).map(Number);
+  const sumArr = arr.reduce((acc, current) => acc + current);
+  const iter = (sum, iterationsCount, acc) => {
+    if (iterationsCount === 0) {
       return acc;
     }
-    const average = sum / elementsCount;
+    const average = sum / iterationsCount;
     const newArrElement = Math.floor(average);
     acc.push(newArrElement);
-    return iter(sum - newArrElement, elementsCount - 1, acc);
+    return iter(sum - newArrElement, iterationsCount - 1, acc);
   };
-  return iter(sumElements(arr), arr.length, []);
+  return Number(iter(sumArr, arr.length, []).toString().replace(/,/g, ''));
 };
 
 const generateTask = () => {
-  const taskData = [rnd(0, 9), rnd(0, 9), rnd(0, 9), rnd(0, 9)];
-  const question = `${taskData[0]}${taskData[1]}${taskData[2]}${taskData[3]}`;
-  const answer = arrToString(balanceArr(taskData));
+  const taskNumber = rnd(100, 9999);
+  const question = `${taskNumber}`;
+  const answer = `${balanceArr(taskNumber)}`;
   return [question, answer];
 };
 
-const attemptsCount = 3;
-
-export default () => runGame(rule, generateTask, attemptsCount);
+export default () => runGame(rule, generateTask);

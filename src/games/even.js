@@ -3,7 +3,7 @@ import rnd from '../utils';
 
 const rule = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = n => (n % 2 === 0);
+const isEven = n => n % 2 === 0;
 
 const generateTask = () => {
   const question = rnd(0, 99);
@@ -11,6 +11,4 @@ const generateTask = () => {
   return [question, answer];
 };
 
-const attemptsCount = 3;
-
-export default () => runGame(rule, generateTask, attemptsCount);
+export default () => runGame(rule, generateTask);

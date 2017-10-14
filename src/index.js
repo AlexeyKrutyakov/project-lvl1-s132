@@ -1,6 +1,8 @@
 import readlineSync from 'readline-sync';
 
-export default (rule, task, attemptsCount) => {
+const attemptsCount = 3;
+
+export default (rule, task) => {
   console.log('Welcome to the Brain Games!');
   console.log(rule);
 
