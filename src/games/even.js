@@ -5,10 +5,10 @@ const rule = 'Answer "yes" if number even otherwise answer "no".';
 
 const isEven = n => n % 2 === 0;
 
-const generateTask = () => {
+const createTask = () => {
   const question = rnd(0, 99);
   const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
-export default () => runGame(rule, generateTask);
+export default () => runGame(rule, createTask);

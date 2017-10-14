@@ -3,21 +3,19 @@ import rnd from '../utils';
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-const countGcd = (a, b) => {
-  const recur = (n, m) => {
-    if (m === 0) {
-      return [`${Math.abs(n)}`];
-    }
-    return recur(m, n % m);
-  };
-  return recur(a, b);
+const countGcd = (n, m) => {
+  if (m === 0) {
+    return [`${Math.abs(n)}`];
+  }
+  return countGcd(m, n % m);
 };
 
-const generateTask = () => {
-  const taskData = [rnd(0, 99), rnd(0, 99)];
-  const question = `${taskData[0]} ${taskData[1]}`;
-  const answer = `${countGcd(taskData[0], taskData[1])}`;
+const createTask = () => {
+  const a = rnd(0, 99);
+  const b = rnd(0, 99);
+  const question = `${a} ${b}`;
+  const answer = `${countGcd(a, b)}`;
   return [question, answer];
 };
 
-export default () => runGame(rule, generateTask);
+export default () => runGame(rule, createTask);

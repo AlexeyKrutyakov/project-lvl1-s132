@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 const attemptsCount = 3;
 
-export default (rule, task) => {
+export default (rule, createTask) => {
   console.log('Welcome to the Brain Games!');
   console.log(rule);
 
@@ -14,7 +14,7 @@ export default (rule, task) => {
       console.log(`Congratulations, ${name}!`);
       return;
     }
-    const currentTask = task();
+    const currentTask = createTask();
     const question = currentTask[0];
     const correct = currentTask[1];
 
