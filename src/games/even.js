@@ -1,12 +1,12 @@
 import runGame from '..';
-import rnd from '../utils';
+import randomNumberFromRange from '../utils';
 
 const rule = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = n => n % 2 === 0;
+const isEven = theNumber => theNumber % 2 === 0;
 
 const createTask = () => {
-  const question = rnd(0, 99);
+  const question = randomNumberFromRange(0, 99);
   const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
 };

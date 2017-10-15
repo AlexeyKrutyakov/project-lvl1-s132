@@ -1,20 +1,20 @@
 import runGame from '..';
-import rnd from '../utils';
+import randomNumberFromRange from '../utils';
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-const countGcd = (n, m) => {
-  if (m === 0) {
-    return [`${Math.abs(n)}`];
+const countGcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
   }
-  return countGcd(m, n % m);
+  return countGcd(num2, num1 % num2);
 };
 
 const createTask = () => {
-  const a = rnd(0, 99);
-  const b = rnd(0, 99);
-  const question = `${a} ${b}`;
-  const answer = `${countGcd(a, b)}`;
+  const number1 = randomNumberFromRange(0, 99);
+  const number2 = randomNumberFromRange(0, 99);
+  const question = `${number1} ${number2}`;
+  const answer = `${countGcd(number1, number2)}`;
   return [question, answer];
 };
 

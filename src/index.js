@@ -5,9 +5,11 @@ const attemptsCount = 3;
 export default (rule, createTask) => {
   console.log('Welcome to the Brain Games!');
   console.log(rule);
+  console.log();
 
-  const name = readlineSync.question('\nMay I have your name? ');
-  console.log(`Hello, ${name}!\n`);
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  console.log();
 
   const iter = (attempt = 1) => {
     if (attempt > attemptsCount) {
@@ -25,7 +27,8 @@ export default (rule, createTask) => {
       iter(attempt + 1);
       return;
     }
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correct}'.\nLet's try again, ${name}!`);
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correct}'.`);
+    console.log(`Let's try again, ${name}!`);
   };
   return iter();
 };

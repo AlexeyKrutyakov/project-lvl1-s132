@@ -1,5 +1,5 @@
 import runGame from '..';
-import rnd from '../utils';
+import randomNumberFromRange from '../utils';
 
 const rule = 'Balance the given number.';
 
@@ -20,9 +20,9 @@ const balanceTheNumber = (n) => {
 };
 
 const createTask = () => {
-  const n = rnd(100, 9999);
-  const question = `${n}`;
-  const answer = `${balanceTheNumber(n)}`;
+  const num = randomNumberFromRange(100, 9999);
+  const question = `${num}`;
+  const answer = `${balanceTheNumber(num)}`;
   return [question, answer];
 };
 
