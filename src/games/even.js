@@ -3,7 +3,7 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = theNumber => theNumber % 2 === 0;
+const isEven = num => num % 2 === 0;
 
 const createTask = () => {
   const question = randomNumberFromRange(0, 99);

@@ -3,7 +3,7 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'What number is missing in this progression?';
 
-const generateProgression = (firstElement) => {
+const createQuestionAndAnswer = (firstElement) => {
   const rangeOfChange = randomNumberFromRange(1, 9);
   let result = [firstElement];
   const progressionLength = 10;
@@ -18,7 +18,7 @@ const generateProgression = (firstElement) => {
 
 const createTask = () => {
   const startNumber = randomNumberFromRange(1, 99);
-  return generateProgression(startNumber);
+  return createQuestionAndAnswer(startNumber);
 };
 
 export default () => runGame(rule, createTask);

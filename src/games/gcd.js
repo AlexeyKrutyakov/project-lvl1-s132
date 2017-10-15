@@ -14,8 +14,8 @@ const createTask = () => {
   const firstNumber = randomNumberFromRange(0, 99);
   const secondNumber = randomNumberFromRange(0, 99);
   const question = `${firstNumber} ${secondNumber}`;
-  const answer = `${countGcd(firstNumber, secondNumber)}`;
-  return [question, answer];
+  const answer = countGcd(firstNumber, secondNumber);
+  return [question, String(answer)];
 };
 
 export default () => runGame(rule, createTask);

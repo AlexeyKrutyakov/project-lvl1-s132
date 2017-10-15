@@ -3,15 +3,16 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'Answer "yes" if number prime otherwise answer "no".';
 
-const isPrime = (theNumber) => {
-  if (theNumber < 2) {
+const isPrime = (num) => {
+  const halfOfNum = num / 2;
+  if (num < 2) {
     return false;
   }
   const iter = (divisor) => {
-    if (theNumber / 2 < divisor) {
+    if (divisor > halfOfNum) {
       return true;
     }
-    if (theNumber % divisor === 0) {
+    if (num % divisor === 0) {
       return false;
     }
     return iter(divisor + 1);
