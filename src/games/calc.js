@@ -3,21 +3,21 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'What is the result of the expression?';
 
-const createQuestionAndAnswer = (number1, number2) => {
+const createQuestionAndAnswer = (a, b) => {
   switch (randomNumberFromRange(1, 3)) {
     case 1:
-      return [`${number1} + ${number2}`, `${number1 + number2}`];
+      return [`${a} + ${b}`, `${a + b}`];
     case 2:
-      return [`${number1} - ${number2}`, `${number1 - number2}`];
+      return [`${a} - ${b}`, `${a - b}`];
     default:
-      return [`${number1} * ${number2}`, `${number1 * number2}`];
+      return [`${a} * ${b}`, `${a * b}`];
   }
 };
 
 const createTask = () => {
-  const num1 = randomNumberFromRange(0, 99);
-  const num2 = randomNumberFromRange(0, 99);
-  return createQuestionAndAnswer(num1, num2);
+  const firstNumber = randomNumberFromRange(0, 99);
+  const secondNumber = randomNumberFromRange(0, 99);
+  return createQuestionAndAnswer(firstNumber, secondNumber);
 };
 
 export default () => runGame(rule, createTask);

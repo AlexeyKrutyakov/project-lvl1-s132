@@ -3,18 +3,18 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-const countGcd = (num1, num2) => {
-  if (num2 === 0) {
-    return num1;
+const countGcd = (a, b) => {
+  if (b === 0) {
+    return a;
   }
-  return countGcd(num2, num1 % num2);
+  return countGcd(b, a % b);
 };
 
 const createTask = () => {
-  const number1 = randomNumberFromRange(0, 99);
-  const number2 = randomNumberFromRange(0, 99);
-  const question = `${number1} ${number2}`;
-  const answer = `${countGcd(number1, number2)}`;
+  const firstNumber = randomNumberFromRange(0, 99);
+  const secondNumber = randomNumberFromRange(0, 99);
+  const question = `${firstNumber} ${secondNumber}`;
+  const answer = `${countGcd(firstNumber, secondNumber)}`;
   return [question, answer];
 };
 

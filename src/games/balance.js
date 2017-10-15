@@ -3,8 +3,8 @@ import randomNumberFromRange from '../utils';
 
 const rule = 'Balance the given number.';
 
-const balanceTheNumber = (n) => {
-  const arr = Array.from(String(n)).map(Number);
+const balanceTheNumber = (rawNumber) => {
+  const arr = Array.from(String(rawNumber)).map(Number);
   const sumElements = arr.reduce((acc, element) => acc + element);
 
   const iter = (sum, elements, acc) => {
@@ -20,9 +20,9 @@ const balanceTheNumber = (n) => {
 };
 
 const createTask = () => {
-  const num = randomNumberFromRange(100, 9999);
-  const question = `${num}`;
-  const answer = `${balanceTheNumber(num)}`;
+  const randomNumber = randomNumberFromRange(100, 9999);
+  const question = `${randomNumber}`;
+  const answer = `${balanceTheNumber(question)}`;
   return [question, answer];
 };
 
