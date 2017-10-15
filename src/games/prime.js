@@ -4,12 +4,12 @@ import randomNumberFromRange from '../utils';
 const rule = 'Answer "yes" if number prime otherwise answer "no".';
 
 const isPrime = (num) => {
-  const halfOfNum = num / 2;
+  const halfNum = num / 2;
   if (num < 2) {
     return false;
   }
   const iter = (divisor) => {
-    if (divisor > halfOfNum) {
+    if (divisor > halfNum) {
       return true;
     }
     if (num % divisor === 0) {
