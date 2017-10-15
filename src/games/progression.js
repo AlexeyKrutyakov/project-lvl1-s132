@@ -13,15 +13,12 @@ const generateProgression = (firstElement) => {
   const missedIndex = randomNumberFromRange(0, 9);
   const missedElement = result[missedIndex];
   result[missedIndex] = '..';
-  return [result.join(' '), missedElement];
+  return [result.join(' '), `${missedElement}`];
 };
 
 const createTask = () => {
   const startNumber = randomNumberFromRange(1, 99);
-  const task = generateProgression(startNumber);
-  const question = `${task[0]}`;
-  const answer = `${task[1]}`;
-  return [question, answer];
+  return generateProgression(startNumber);
 };
 
 export default () => runGame(rule, createTask);
